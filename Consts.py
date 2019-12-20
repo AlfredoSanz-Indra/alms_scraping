@@ -9,25 +9,25 @@ import ConstsAux
 
 
 #supported operations
-operationsSupported = ConstAux.operationsSupported
+operationsSupported = ConstsAux.operationsSupported
 
 #Seconds the loop to wait
-loop_wait = ConstAux.loop_wait
-loop_iterations_max = ConstAux.loop_iterations_max # 40 iterations is two hours of iterations in 3 minutes by iteration.
+loop_wait = ConstsAux.loop_wait
+loop_iterations_max = ConstsAux.loop_iterations_max # 40 iterations is two hours of iterations in 3 minutes by iteration.
 
 TIME_UNIT_SEC = 'SEC'
 TIME_UNIT_MIN = 'MIN'
 
 
 # Urls
-url_page = ConstAux.url_page
-url_login = ConstAux.url_login
-url_buscar_paquete = ConstAux.url_buscar_paquete
-url_buscar_modulo  = ConstAux.url_buscar_modulo
-url_buscar_modulo_pvcs_step1 = ConstAux.url_buscar_modulo_pvcs_step1
-url_buscar_modulo_pvcs_step2 = ConstAux.url_buscar_modulo_pvcs_step2
-url_paquete_detalle = ConstAux.url_paquete_detalle
+url_page = ConstsAux.url_page
+url_login = ConstsAux.url_login
+url_buscar_paquete = ConstsAux.url_buscar_paquete
+url_buscar_modulo  = ConstsAux.url_buscar_modulo
+url_buscar_modulo_pvcs_step1 = ConstsAux.url_buscar_modulo_pvcs_step1
+url_buscar_modulo_pvcs_step2 = ConstsAux.url_buscar_modulo_pvcs_step2
+url_paquete_detalle = ConstsAux.url_paquete_detalle
 
-login_payload = ConstAux.login_payload
+login_payload = ConstsAux.login_payload
     
-headers = ConstAux.headers
+headers = ConstsAux.headers
