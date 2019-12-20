@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Aplicacion que analiza la web alms -> http://10.40.8.13:26000/ALMS/
+""" Aplicacion que analiza la web alms -> http://XXXX/ALMS/
 
     @author Alfredo Sanz
     @date Octubre 2019
