@@ -1,0 +1,7 @@
+*.pyc
+*.pyman
+*.pyo
+*.db
+__pycache__
+/result-files/
+
