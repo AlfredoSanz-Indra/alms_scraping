@@ -10,7 +10,7 @@ es donde hay que indicar los datos de entrada.
 El Script implementa distintas operaciones, que se indican por parametro
 en la llamada al script desde la consola.
 
-Se han creado distintos staters .bat, uno por cada operación soportada, as�
+Se han creado distintos staters .bat, uno por cada operación soportada, así
 que para ejecutar hay que abrir una consola cmd y ejecutar uno de estos::
 
 run_module.bat

@@ -15,5 +15,5 @@ package_id_detail = '99999'
 module_name_search = 'XContractOverview.java' 
 
 #name of a module - action: pvcs
-module_pvcs_search = 'XContractOverview.java'
+module_pvcs_search = 'XContractOverview.java' 
 
