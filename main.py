@@ -3,7 +3,7 @@
 
     @author Alfredo Sanz
     @date Octubre 2019
-    @v0.3 Implements a Loop for Find Package; -o pckg_state_loop; Loop Current setup: 3mins;
+    @v0.3 Implements a Loop for Find Package; -o pckg_state_loop; Loop Current setup: 3mins; 
 """
 
 #APIs imports

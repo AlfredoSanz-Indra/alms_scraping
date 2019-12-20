@@ -4,5 +4,4 @@
 *.db
 __pycache__
 /result-files/
-ConfigRoot.py
-Consts.py
+ConstsAux.py
