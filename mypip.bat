@@ -28,6 +28,9 @@ call D:\DEV\python3\Scripts\pip install --upgrade pandas
 call D:\DEV\python3\Scripts\pip install --upgrade xlsxwriter
 
 call D:\DEV\python3\Scripts\pip install --upgrade flask
+call D:\DEV\python3\Scripts\pip install --upgrade Flask-RESTful
+call D:\DEV\python3\Scripts\pip install --upgrade Flask-Cors
+call D:\DEV\python3\Scripts\pip install --upgrade urllib3
 
 
 call D:\DEV\python3\Scripts\pip list 
