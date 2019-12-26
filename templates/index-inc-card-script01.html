@@ -1,0 +1,36 @@
+<div class="card  rounded myBodyCard">
+    <div class="card-header myScriptCard" id="headingOne">
+        <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Package State
+            </button>
+        </h2>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#scriptOptions">
+        <div class="card-body">           
+            <div class="card-block">
+                <h3>
+                    This Script will request the state of a list of packages IDs.
+                </h3>
+            </div>
+
+            <!-- DATA INPUT-->
+            <div class="card-block mt-3">
+                <form id="pckgStateScriptForm">
+                    <div class="form-group mb-2">
+                        <label for="pckg_id_list">Enter the packages IDs </label>
+                        <input type="text" id="pckg_id_list" class="form-control" placeholder="One or more IDs separated by commas:  11223,33445,66778"/>
+                    </div>
+                    <button type="button" id="btLaunchScriptPckgstate" class="btn btn-primary" onclick="click_btLaunchScriptPckgstate()">Launch Script</button>
+                </form>
+            </div>
+
+            <!--RESPONSE DATA-->
+            <div class="card-block mt-3">
+                <div id="response_area_script_pckg_state">
+                    <span id="thetext"/>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>

@@ -7,7 +7,6 @@
 
 import ConstsAux
 
-
 #supported operations
 operationsSupported = ConstsAux.operationsSupported
 

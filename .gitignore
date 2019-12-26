@@ -2,6 +2,8 @@
 *.pyman
 *.pyo
 *.db
+*.log
 __pycache__
 /result-files/
+/logs/
 ConstsAux.py

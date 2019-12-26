@@ -17,6 +17,16 @@ import math
 import Consts
 
 
+#Obtiene el nivel de Logging que se ha configurado en el fichero config.cfg
+#Devuelve el valor Entero que corresponde al nivel seleccionado.
+def getAppLogLevel():
+
+    logLevelDefined = Consts.app_log_level
+    logLevel =  Consts.logs_level[logLevelDefined]
+
+    return logLevel
+#fin getAppLogLevel
+
 def datetimeFechaToStringFecha(_dtdtFecha):
 
     result = _dtdtFecha.strftime("%d/%m/%Y")

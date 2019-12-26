@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>El Trading de Alf | Welcome to the Real World!</title>
+    <title>Python Webscraping scripts on alms</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Bienvenido al portal de Trading de Alf. Aqui encontrarás datos y análisis sobre mercados financieros con orientación al Trading intradía.">
-    <meta name="author" content="Alfredo Sanz | https://alfredo-sanz-martin-cv.appspot.com">
-    <link rel="icon" href="../favicon.ico">
+    <meta name="description" content="Welcome to me.">
+    <meta name="author" content="Alfredo Sanz | https://github.com/AlfredoSanz-Indra">
+    
      <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
     
     {% include "inc-import-css.html" ignore missing %}
-    <link rel="stylesheet" href="{{datas.domain}}/static/css/public-home-v03.css" />
-     
+        
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
+    
 </head>
 
 <!-- BEGIN BODY -->
@@ -36,39 +37,29 @@
         <!-- HEADER -->
         {% include "inc-header.html" ignore missing %}
         <!-- /HEADER -->
-        
-        <form id="mainform">
-            <input type="hidden" id="mydomain" value="{{datas.domain}}"/>
-        </form>
 
         <!-- MAIN BODY-->
         <div class="row">
+            <div class="col-md-12">
 
-            <!-- MAIN CONTENT -->
-            <div class="col md-8">
-                <div class="row">
-                    <div class="col-md-7">
-                        {% include "home-inc-card-mercados-ibex35.html" ignore missing %}
-                    </div>
-                    <div class="col-md-5">
-                        {% include "home-inc-card-noticias.html" ignore missing %}
-                    </div>                    
-                </div>
+                <!-- MAIN CONTENT -->
+                <div class="accordion" id="scriptOptions">
+                    
+                    <!-- Script 1-->
+                    {% include "index-inc-card-script01.html" ignore missing %}
 
-                <div class="row">
-                    <div class="col-md-12">
-                        {% include "home-inc-card-blog-ultimos.html" ignore missing %}
-                    </div>
-                </div>
+                    <!-- Script 2-->
+                    {% include "index-inc-card-script02.html" ignore missing %}
+
+                    <!-- Script 3-->
+                    {% include "index-inc-card-script03.html" ignore missing %}
+
+                    <!-- Script 4-->
+                    {% include "index-inc-card-script04.html" ignore missing %}
+                    
+                </div>            
+                <!-- /MAIN CONTENT -->
             </div>
-            <!-- /MAIN CONTENT -->
-
-            <!-- RIGHT SIDEBAR -->
-            <div class="col md-4 myRightSideCol">
-                {% include "home-inc-rightadsense.html" ignore missing %}
-            </div>
-            <!-- /RIGHT SIDEBAR -->
-
         </div>
         <!-- /MAIN BODY-->
 
@@ -84,6 +75,7 @@
     <script src="{{datas.domain}}/static/js/tether.min.js"></script>
     <script src="{{datas.domain}}/static/js/bootstrap.min.js"></script>
     <script src="{{datas.domain}}/static/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{datas.domain}}/static/js/app.js"></script>
     
     <script>
         var mobile = '-';
@@ -91,9 +83,11 @@
 
         $(document).ready(function() {
 
-            var mydomain = $('#mainform #mydomain').val();
+            const mydomain = $('#mainform #mydomain').val();
+
+            console.log(mydomain);
             
-           
+            
         });//fin ready
     </script>
 

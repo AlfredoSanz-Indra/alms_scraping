@@ -1,0 +1,24 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.jumbotron{
+    margin-top: 0px;
+    padding: 17px;
+    background: #85BB65 !important;        
+    font-family: 'Dosis', sans-serif !important;
+    color: #f3f4b9 !important;    
+}
+
+.myBodyCard {
+    margin-top: 1rem;
+}
+
+.myScriptCard {
+    background: #c1e4cf;
+    padding: .2rem .1rem .3rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #111;
+}
