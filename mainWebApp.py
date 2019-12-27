@@ -11,6 +11,8 @@ from flask_cors import CORS, cross_origin
 import urllib
 import logging
 import json
+import shutil #move files
+import subprocess #launchs processes
 import Util
 
 app = Flask(__name__)
@@ -109,6 +111,8 @@ def ajx_script_pckgState_get():
 
     errormessage = '0'
     resultData = {}
+    result = ''
+    inputs = ''
 
     try:
         timedata = Util.getCurrentTime()
@@ -117,17 +121,48 @@ def ajx_script_pckgState_get():
         params = {'pckg_id_list' : request.form.get("pckg_id_list")
                  }        
 
+        #TODO todo esto hay que refactorizarlo***
+
         #***PERFORM ACTION
         idList = [x.strip() for x in params['pckg_id_list'].split(',')]
-        app.logger.info('The package list requested: ' + repr(idList))
+        inputs = repr(idList)
+        app.logger.info('The IDs: ' + inputs)
 
+        app.logger.info('**Updating input data**')
+        with open('ConfigRoot.py') as f:
+            lines = list(f)            
 
-        result = ''
-        for i in idList:
-            result += i
+            with open('ConfigRoot.py.tmp', 'w') as output:
+                for line in lines:
+                    if line.startswith('packages_id_searchlist'):
+                        output.write('packages_id_searchlist = ' + repr(idList) + '\n')
+                    else:
+                        output.write(line)
+                #
+            #
         #
+        shutil.move('ConfigRoot.py.tmp', 'ConfigRoot.py')
+
+
+        app.logger.info('**Launching Process**')
+        process = subprocess.run(['D:/DEV/python3/python', 'main.py', '-o pckg_state'], 
+                         stdout=subprocess.PIPE, 
+                         universal_newlines=True,
+                         bufsize=0)
+
+        app.logger.info('process return code:' + str(process.returncode))        
+
+        result = ''        
+        for line in process.stdout.split('\n'):
+            result += '<p>'
+            result += line.strip()
+            result += '</p>'
+        #
+        app.logger.info('process return stdout:' + result)
 
         #RESPONSE DATA
+        app.logger.info('**Preparing output**')
+        resultData['inputs'] = inputs
         resultData['results'] = result
         resultData['successMessage'] = u'OK'
         resultData['errormessage'] = u'0'

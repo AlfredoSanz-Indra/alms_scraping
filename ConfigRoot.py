@@ -7,7 +7,7 @@
 
 
 #list of packages id to search - action: pckg_state, pckg_state_loop
-packages_id_searchlist = ['374222','374133']
+packages_id_searchlist = ['386613']
 
 
 #package details search

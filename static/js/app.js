@@ -17,10 +17,12 @@ function click_btLaunchScriptPckgstate() {
 
         if('0' == data['serverdata']['errormessage']) {            
             const script_result = data['serverdata']['results'];        
-            $('#response_area_script_pckg_state #thetext').text(script_result);   
+            $('#response_area_script_pckg_state_inputs #thetext').html( data['serverdata']['inputs']);
+            $('#response_area_script_pckg_state_results #thetext').html( data['serverdata']['results']);
         }
         else {
             console.log('Error Launching Package State Script, data:' + data['serverdata']['errormessage']);
+            $('#response_area_script_pckg_state_results #thetext').html( data['serverdata']['errormessage']);
         }                
     });
 }

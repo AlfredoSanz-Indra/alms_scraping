@@ -32,9 +32,14 @@ from actions.Find_package_detail import Find_package_detail
 def login_Action(_session_requests, _sess_cookies):
     """ Do the Login into web app"""
 
-    login_rq_result = _session_requests.post(Consts.url_login, data = Consts.login_payload, headers = Consts.headers, cookies = _sess_cookies)
-    print('login - status_code:' + repr(login_rq_result.status_code))
-    print('login - status_reason:' + repr(login_rq_result.reason))    
+    try:
+        login_rq_result = _session_requests.post(Consts.url_login, data = Consts.login_payload, headers = Consts.headers, cookies = _sess_cookies)
+        print('login - status_code:' + repr(login_rq_result.status_code))
+        print('login - status_reason:' + repr(login_rq_result.reason))
+    except Exception as err:
+        print('Error Login into webapp:' + (str(err)))
+        raise Exception('*Error in Login: ' + str(err))
+    #
 #fin login_Action    
 
 
@@ -49,16 +54,21 @@ def login_Action(_session_requests, _sess_cookies):
 def init_Session_Action(_session_requests):
     """Create the session accessing Welcome page"""
 
-    init_rq_result = _session_requests.post(Consts.url_page, data = {}, headers = {})
-    print('initSess - status_code:' + repr(init_rq_result.status_code))
-    print('initSess - status_reason:' + repr(init_rq_result.reason))
+    try:
+        init_rq_result = _session_requests.post(Consts.url_page, data = {}, headers = {})
+        print('initSess - status_code:' + repr(init_rq_result.status_code))
+        print('initSess - status_reason:' + repr(init_rq_result.reason))
 
-    #cookies for JSESSIONID
-    sess_cookies = _session_requests.cookies.get_dict()
-    print('initSess - Cookies:' + repr(sess_cookies))
+        #cookies for JSESSIONID
+        sess_cookies = _session_requests.cookies.get_dict()
+        print('initSess - Cookies:' + repr(sess_cookies))
+    except Exception as err:
+        print('Error initializing Session:' + (str(err)))
+        raise Exception('*Error initializing Session: ' + str(err))
+    #
 
     return sess_cookies
-#fin init_Session
+#fin init_Session_Action
 
 
 
@@ -71,38 +81,45 @@ def runApp(operation):
     """ Main method"""
 
     click.echo('Running App')
+
+    operation = operation.strip()
     click.echo("The Operation is:" + operation)
 
     opResult = '1'
     
-    if operation not in Consts.operationsSupported:
-        click.echo("Operation Not Supported!.")
-    else:
-        session_request = requests.session()
-        session_cookies = init_Session_Action(session_request)
-        login_Action(session_request, session_cookies)
-
-        
-        if 'pckg_state' == operation or 'pckg_state_loop' == operation:
-
-            op = Find_package_state()
-            opResult = op.executeOP(session_request, session_cookies, operation)
-        elif 'module' == operation:
-            
-            op = Find_module_packages()
-            opResult = op.executeOP(session_request, session_cookies)
-        elif 'pvcs' == operation:
-
-            op = Find_module_pvcs()
-            opResult = op.executeOP(session_request, session_cookies)
-        elif 'pckg_detail' == operation:
-            
-            op = Find_package_detail()
-            opResult = op.executeOP(session_request, session_cookies)
+    try:
+        if operation not in Consts.operationsSupported:
+            click.echo("Operation Not Supported!.")
         else:
-            click.echo("Operation Not Supported!..2.")
-        #
-    #if
+            session_request = requests.session()
+            session_cookies = init_Session_Action(session_request)
+            login_Action(session_request, session_cookies)
+
+            
+            if 'pckg_state' == operation or 'pckg_state_loop' == operation:
+
+                op = Find_package_state()
+                opResult = op.executeOP(session_request, session_cookies, operation)
+            elif 'module' == operation:
+                
+                op = Find_module_packages()
+                opResult = op.executeOP(session_request, session_cookies)
+            elif 'pvcs' == operation:
+
+                op = Find_module_pvcs()
+                opResult = op.executeOP(session_request, session_cookies)
+            elif 'pckg_detail' == operation:
+                
+                op = Find_package_detail()
+                opResult = op.executeOP(session_request, session_cookies)
+            else:
+                click.echo("Operation Not Supported!..2.")
+            #
+        #if
+    except Exception as err:
+        print('Error Executing Script:' + (str(err)))
+        opResult = '-5'
+    #
 
     click.echo("Finished with code: " + opResult)
 #fin runApp
